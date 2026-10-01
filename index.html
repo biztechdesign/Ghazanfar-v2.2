@@ -13,40 +13,41 @@
 <style>
   :root{
     /* brand + extended palette */
-    --brand-blue:#003E84;
-    --brand-green:#009136;
-    --brand-gold:#C88F27;
-    --forest:#073B32;
-    --forest-deep:#052A25;
-    --sage:#DCE9D8;
-    --mist:#F1F6F1;
-    --paper:#F2F2E8;
-    --text-secondary:#667085;
-    --border-soft:#DDE5E1;
+    --brand-blue:#004494;
+    --brand-green:#009036;
+    --brand-gold:#C98B18;
+    --gold-dark:#A97010;
+    --gold-soft:#E8B84F;
+    --forest:var(--brand-green);
+    --forest-deep:#00752D;
+    --sage:rgba(255,255,255,.82);
+    --mist:#EDF7F0;
+    --paper:#F6F5EE;
+    --text-secondary:#475467;
+    --border-soft:#D9DCDD;
     /* shape, space, elevation */
     --radius-card:20px;
     --radius-btn:10px;
     --section-y:88px;
     --shadow-card:0 1px 2px rgba(16,24,40,.04);
     --shadow-lift:0 12px 28px -16px rgba(5,42,37,.22);
-    --navy:#003E84;
-    --navy-dark:#002f66;
-    --navy-deep:#11529a;
-    --green:#009136;
+    --navy:#004494;
+    --navy-dark:#00336F;
+    --green:#009036;
     --ink:#101828;
-    --body-text:#4a5565;
-    --muted:#667085;
-    --line:#DDE5E1;
-    --bg:#F2F2E8;
+    --body-text:#101828;
+    --muted:#475467;
+    --line:#D9DCDD;
+    --bg:#F6F5EE;
     --card-bg:#ffffff;
-    --page-bg:#F2F2E8;
-    --nav-glass-bg:rgba(242,242,232,.78);
-    --footer-bg:#052A25;
-    --footer-link:#DCE9D8;
-    --motif-tint:#eef3fa;
-    --motif-line-star:rgba(1,68,147,.16);
-    --motif-line-cross:rgba(1,68,147,.11);
-    --motif-node:rgba(243,183,26,.06);
+    --page-bg:#F6F5EE;
+    --nav-glass-bg:rgba(246,245,238,.78);
+    --footer-bg:var(--navy-dark);
+    --footer-link:rgba(255,255,255,.75);
+    --motif-tint:#EDF4FA;
+    --motif-line-star:rgba(0,68,148,.16);
+    --motif-line-cross:rgba(0,68,148,.11);
+    --motif-node:rgba(232,184,79,.06);
     --scrim-rgb:255,255,255;
     --ease:cubic-bezier(.22,1,.36,1);
     --ease-in:cubic-bezier(.4,0,1,1);
@@ -178,7 +179,7 @@
     transition:color var(--dur-s) var(--ease), background-color var(--dur-s) var(--ease);
   }
   .primary-nav .menu:hover, .primary-nav a:hover{color:var(--forest);}
-  .primary-nav .menu[aria-expanded="true"]{color:var(--forest);background:rgba(7,59,50,.06);}
+  .primary-nav .menu[aria-expanded="true"]{color:var(--forest);background:rgba(0,144,54,.06);}
   .chev{width:10px;height:10px;opacity:.6;flex-shrink:0;}
   .dropdown{position:absolute;top:calc(100% + 6px);left:0;min-width:220px;background:var(--card-bg);
     border:1px solid var(--line);border-radius:12px;box-shadow:0 16px 32px -8px rgba(0,0,0,.18);
@@ -187,7 +188,7 @@
   .dropdown a{display:block;padding:10px 12px;min-height:44px;display:flex;align-items:center;
     border-radius:8px;font-size:14.5px;color:var(--body-text);
     transition:background-color var(--dur-xs) var(--ease), color var(--dur-xs) var(--ease);}
-  .dropdown a:hover{background:rgba(7,59,50,.06);color:var(--forest);}
+  .dropdown a:hover{background:rgba(0,144,54,.06);color:var(--forest);}
   .megamenu{position:fixed;top:var(--nav-h,132px);left:0;right:0;width:100%;min-width:0;
     background:var(--card-bg);border:none;border-top:1px solid var(--line);
     border-radius:0 0 20px 20px;box-shadow:0 24px 48px -16px rgba(16,24,40,.18);
@@ -201,11 +202,11 @@
   .megamenu-col-list{display:flex;flex-direction:column;gap:0;}
   .megamenu-col-list a{display:block;padding:6px 4px;border-radius:8px;font-size:14.5px;
     color:var(--body-text);transition:color var(--dur-xs) var(--ease), background-color var(--dur-xs) var(--ease);}
-  .megamenu-col-list a:hover{color:var(--forest);background:rgba(7,59,50,.06);}
+  .megamenu-col-list a:hover{color:var(--forest);background:rgba(0,144,54,.06);}
   .megamenu-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px 40px;}
   .megamenu-card{display:flex;align-items:center;gap:14px;padding:4px;border-radius:12px;
     transition:background-color var(--dur-xs) var(--ease);}
-  .megamenu-card:hover{background:rgba(7,59,50,.06);}
+  .megamenu-card:hover{background:rgba(0,144,54,.06);}
   .megamenu-card-icon{width:48px;height:48px;border-radius:50%;background:var(--forest);
     display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;
     font-size:17px;font-weight:700;}
@@ -244,7 +245,7 @@
   @media (max-width:900px){
     .primary-nav{display:none;}
     .nav-toggle{display:flex;}
-    .nav-open-acct{display:none;}
+    .nav-right .nav-open-acct{display:none;}
     .mobile-nav.open{display:flex;}
   }
 
@@ -258,7 +259,7 @@
   .fx-eyebrow{display:block;font-size:11px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;
     color:var(--navy);margin-bottom:8px;}
   .fx-head h2{font-size:34px;font-weight:800;color:var(--ink);margin:0;line-height:1.25;letter-spacing:-.3px;}
-  .fx-updated{display:inline-flex;align-items:center;gap:8px;background:#e5f4eb;color:var(--ink);
+  .fx-updated{display:inline-flex;align-items:center;gap:8px;background:var(--mist);color:var(--ink);
     font-size:12px;font-weight:700;padding:8px 14px;border-radius:999px;}
   .fx-updated::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green);}
   .fx-row{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
@@ -351,8 +352,8 @@
   .hero-card-visual{position:relative;width:min(600px,100%);aspect-ratio:1/.9;margin:0 auto;perspective:1200px;
     animation:cardsIn 1.1s cubic-bezier(.22,1,.36,1) .1s both;}
   .hero-card-visual::before{content:"";position:absolute;inset:-6% -8%;z-index:0;pointer-events:none;
-    background:radial-gradient(48% 48% at 46% 50%, rgba(220,233,216,.10) 0%, rgba(220,233,216,0) 70%),
-               radial-gradient(38% 38% at 66% 62%, rgba(200,143,39,.08) 0%, rgba(200,143,39,0) 70%);}
+    background:radial-gradient(48% 48% at 46% 50%, rgba(255,255,255,.10) 0%, rgba(255,255,255,0) 70%),
+               radial-gradient(38% 38% at 66% 62%, rgba(232,184,79,.08) 0%, rgba(232,184,79,0) 70%);}
   .hero-card{position:absolute;left:9%;top:50%;width:82%;margin-top:-30.75%;z-index:var(--z);
     aspect-ratio:1448/1086;will-change:transform;transform-origin:50% 50%;
     filter:drop-shadow(0 12px 24px rgba(0,0,0,.10));}
@@ -383,7 +384,7 @@
 
   .phones{position:relative;height:420px;display:flex;align-items:center;justify-content:center;}
   .phone{position:absolute;width:150px;height:310px;border-radius:26px;background:#111;padding:6px;
-    box-shadow:0 24px 40px -12px rgba(1,68,147,.35);}
+    box-shadow:0 24px 40px -12px rgba(0,68,148,.35);}
   .phone .screen{width:100%;height:100%;border-radius:20px;overflow:hidden;position:relative;}
   .phone.p1{transform:rotate(-8deg) translateX(-70px);z-index:1;}
   .phone.p2{transform:translateY(-14px);z-index:3;width:160px;height:330px;}
@@ -464,17 +465,17 @@
     scrollbar-width:none;-ms-overflow-style:none;}
   .carousel-track::-webkit-scrollbar{display:none;}
   .carousel-track.dragging{cursor:grabbing;scroll-snap-type:none;scroll-behavior:auto;user-select:none;}
-  /* image-first cards: photo fills the card, copy sits on a forest-green
+  /* image-first cards: photo fills the card, copy sits on a brand-blue
      gradient overlay at the bottom */
   .carousel-slide{flex:0 0 auto;scroll-snap-align:center;border-radius:var(--radius-card);position:relative;overflow:hidden;
-    width:min(920px, 88vw);height:520px;background:#00285c;isolation:isolate;
+    width:min(920px, 88vw);height:520px;background:var(--navy-dark);isolation:isolate;
     border:1px solid var(--border-soft);}
   .carousel-slide-media{position:absolute;inset:0;z-index:0;}
   .carousel-slide-media img{width:100%;height:100%;object-fit:cover;display:block;pointer-events:none;
     transition:transform var(--dur-l) var(--ease);}
   .carousel-slide:hover .carousel-slide-media img{transform:scale(1.04);}
   .carousel-slide::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-    background:linear-gradient(to top, rgba(0,40,92,.95) 0%, rgba(0,54,122,.82) 38%, rgba(0,62,132,.45) 62%, rgba(0,62,132,0) 85%);}
+    background:linear-gradient(to top, rgba(0,68,148,.95) 0%, rgba(0,68,148,.82) 38%, rgba(0,68,148,.45) 62%, rgba(0,68,148,0) 85%);}
   .drag-badge{position:absolute;top:18px;left:18px;z-index:2;background:var(--navy);color:#fff;
     font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
     padding:9px 20px;border-radius:999px;pointer-events:none;}
@@ -483,7 +484,11 @@
   .carousel-slide-body h3{font-size:27px;font-weight:800;color:#fff;margin:0;line-height:1.25;}
   .carousel-slide-body > p{max-width:none;font-size:15px;color:var(--sage);line-height:1.55;margin:0;
     display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
-  .carousel-slide-body .check-list{display:none;}
+  .check-list{display:flex;flex-direction:column;gap:10px;margin:2px 0 4px;}
+  .check-list .item{display:flex;align-items:center;gap:10px;font-size:14px;line-height:1.4;color:rgba(255,255,255,.9);}
+  .check-list .bullet{display:flex;align-items:center;justify-content:center;width:20px;height:20px;
+    border-radius:50%;background:var(--brand-gold);color:#fff;flex-shrink:0;}
+  .check-list .bullet svg{width:11px;height:11px;}
   .carousel-slide-body .btn-primary{width:fit-content;margin-top:4px;background:none;padding:0;min-height:0;
     color:#fff;font-size:14px;border-radius:0;box-shadow:none;transform:none;}
   .carousel-slide-body .btn-primary:hover{background:none;color:var(--brand-gold);transform:none;box-shadow:none;}
@@ -493,7 +498,7 @@
   .carousel-arrow{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card-bg);
     display:flex;align-items:center;justify-content:center;color:var(--ink);cursor:pointer;flex-shrink:0;
     transition:background-color var(--dur-s) var(--ease), border-color var(--dur-s) var(--ease), color var(--dur-s) var(--ease);}
-  .carousel-arrow:hover{background:rgba(1,68,147,.06);border-color:var(--navy);color:var(--navy);}
+  .carousel-arrow:hover{background:rgba(0,68,148,.06);border-color:var(--navy);color:var(--navy);}
   .carousel-arrow svg{width:18px;height:18px;}
   .carousel-counter{font-size:14px;font-weight:700;color:var(--muted);min-width:44px;text-align:center;}
   .carousel-counter #carouselCurrent{color:var(--ink);}
@@ -582,7 +587,7 @@
   .qa-card:hover::before{opacity:1;}
   .qa-card__top{position:static;display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
   .qa-card__icon{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;width:56px;height:56px;
-    border-radius:14px;background:rgba(1,68,147,.1);color:var(--navy);flex-shrink:0;
+    border-radius:14px;background:rgba(0,68,148,.1);color:var(--navy);flex-shrink:0;
     transition:background var(--dur-m) var(--ease), color var(--dur-m) var(--ease);}
   .qa-card__icon svg{width:28px;height:28px;}
   .qa-card__img{position:relative;z-index:1;display:block;width:100%;max-width:200px;height:170px;object-fit:contain;object-position:center center;margin:0 auto;transition:transform var(--dur-m) var(--ease);}
@@ -665,7 +670,7 @@
     border-radius:var(--radius-card);color:#fff;background:var(--forest);}
   .stat-card--blue{background:var(--brand-blue);}
   .stat-card__icon{width:56px;height:56px;display:flex;align-items:center;justify-content:center;
-    background:none;color:var(--brand-gold);}
+    background:none;color:#fff;}
   .stat-card__icon svg{width:52px;height:52px;stroke-width:1.5;}
   .stat-card__num{font-size:44px;line-height:1.05;font-weight:800;letter-spacing:-1.2px;color:#fff;margin-bottom:8px;}
   .stat-card__lbl{font-size:16px;color:var(--sage);}
@@ -713,7 +718,7 @@
      foot off — the "rising from the bottom" treatment read off the
      reference mobile-app promo. */
   .app-promo{position:relative;overflow:hidden;isolation:isolate;
-    background:var(--forest);padding:32px 0 40px;}
+    background:var(--brand-blue);padding:32px 0 40px;}
   .app-promo-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;
     gap:40px;align-items:center;min-height:380px;}
   .app-promo-visual{position:relative;align-self:stretch;}
@@ -738,16 +743,16 @@
   /* ---------- FOOTER ---------- */
   footer{background:var(--footer-bg);color:#fff;}
   .newsletter{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;
-    padding:28px 32px;border-bottom:1px solid rgba(255,255,255,.1);max-width:1280px;margin:0 auto;}
+    padding:28px 32px;max-width:1280px;margin:0 auto;}
   .newsletter h3{font-size:26px;font-weight:800;margin:0;}
   .nl-form{display:flex;max-width:420px;width:100%;}
-  .nl-form input{flex:1;min-height:44px;background:var(--navy-deep);border:1px solid rgba(255,255,255,.2);border-radius:10px 0 0 10px;
+  .nl-form input{flex:1;min-height:44px;background:var(--navy-dark);border:1px solid rgba(255,255,255,.2);border-radius:10px 0 0 10px;
     padding:12px 16px;color:#fff;font-size:14px;transition:border-color var(--dur-s) var(--ease), background-color var(--dur-s) var(--ease);}
   .nl-form input::placeholder{color:#99a1af;}
-  .nl-form input:focus{outline:none;border-color:var(--green);background:rgba(255,255,255,.06);}
-  .nl-form button{background:var(--green);color:#fff;border:none;border-radius:0 10px 10px 0;padding:0 22px;min-height:44px;font-weight:700;font-size:15px;
+  .nl-form input:focus{outline:none;border-color:var(--navy);background:rgba(255,255,255,.06);}
+  .nl-form button{background:var(--navy);color:#fff;border:none;border-radius:0 10px 10px 0;padding:0 22px;min-height:44px;font-weight:700;font-size:15px;
     display:flex;align-items:center;gap:8px;transition:background-color var(--dur-s) var(--ease), transform var(--dur-s) var(--ease);}
-  .nl-form button:hover{background:#00a03c;transform:translateY(-1px);}
+  .nl-form button:hover{background:var(--navy-dark);transform:translateY(-1px);}
   .nl-form button:active{transform:translateY(0);}
   @media (prefers-reduced-motion: reduce){ .nl-form input, .nl-form button{transition:none;} .nl-form button:hover{transform:none;} }
   .footer-links-wrap{position:relative;}
@@ -758,7 +763,7 @@
   .footer-links-bar{position:relative;z-index:1;display:flex;max-width:1280px;margin:0 auto;flex-wrap:wrap;
     border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.25);}
   .flink{position:relative;z-index:1;flex:1;min-width:230px;display:flex;align-items:center;justify-content:center;gap:10px;
-    padding:18px;background:var(--navy-deep);font-weight:700;font-size:15px;
+    padding:18px;background:var(--forest-deep);font-weight:700;font-size:15px;
     transition:background-color var(--dur-s) var(--ease);}
   .flink:hover{background:var(--navy);}
   .flink:not(:last-child)::after{content:"";position:absolute;right:0;top:0;
@@ -775,8 +780,8 @@
   .fbrand img{height:65px;width:auto;margin-bottom:10px;}
   .fbrand p{font-size:15px;color:var(--footer-link);line-height:1.55;margin:0;}
   .flast{display:flex;flex-direction:column;align-items:flex-end;gap:16px;}
-  .socials{display:flex;align-items:center;gap:18px;}
-  .socials a{width:24px;height:24px;display:flex;align-items:center;justify-content:center;opacity:.85;
+  .socials{display:flex;align-items:center;gap:6px;margin:-10px;}
+  .socials a{width:44px;height:44px;display:flex;align-items:center;justify-content:center;opacity:.85;
     transition:opacity var(--dur-s) var(--ease), transform var(--dur-s) var(--ease);}
   .socials a:hover{opacity:1;transform:translateY(-2px);}
   .socials a svg{width:22px;height:22px;}
@@ -798,11 +803,11 @@
   .fab-stack{position:relative;display:flex;flex-direction:column;align-items:center;gap:12px;}
   .fab-item{width:46px;height:46px;border-radius:50%;background:var(--navy);
     display:flex;align-items:center;justify-content:center;flex-shrink:0;
-    box-shadow:0 14px 26px -10px rgba(1,68,147,.55);
+    box-shadow:0 14px 26px -10px rgba(0,68,148,.55);
     opacity:0;transform:translateY(18px) scale(.5);pointer-events:none;
     transition:opacity var(--dur-m) var(--ease), transform var(--dur-m) var(--ease), box-shadow var(--dur-m) var(--ease);}
   .fab-item svg{width:20px;height:20px;}
-  .fab-item:hover, .fab-item:focus-visible{box-shadow:0 18px 32px -8px rgba(1,68,147,.65);}
+  .fab-item:hover, .fab-item:focus-visible{box-shadow:0 18px 32px -8px rgba(0,68,148,.65);}
   .fab.open .fab-item{opacity:1;transform:translateY(0) scale(1);pointer-events:auto;}
   .fab.open .fab-item:nth-of-type(1){transition-delay:.02s;}
   .fab.open .fab-item:nth-of-type(2){transition-delay:.09s;}
@@ -834,39 +839,39 @@
   .btn--forest{background:var(--forest);color:#fff;}
   .btn--forest:hover{background:var(--forest-deep);}
   .btn--gold{background:var(--brand-gold);color:var(--ink);}
-  .btn--gold:hover{background:#d99a2c;transform:translateY(-1px);}
-  .btn--outline-light{background:transparent;color:#fff;border-color:rgba(220,233,216,.5);}
+  .btn--gold:hover{background:var(--gold-dark);transform:translateY(-1px);}
+  .btn--outline-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.5);}
   .btn--outline-light:hover{border-color:var(--brand-gold);color:var(--brand-gold);}
   .btn--white{background:#fff;color:var(--forest);}
-  .btn--white:hover{background:var(--sage);}
+  .btn--white:hover{background:var(--mist);}
   @media (prefers-reduced-motion: reduce){ .btn{transition:none;} .btn--gold:hover{transform:none;} }
 
   .card-lift{transition:transform var(--dur-s) var(--ease), border-color var(--dur-s) var(--ease), box-shadow var(--dur-s) var(--ease);}
 
-  /* hero: deep green, light copy, gold CTA */
-  .hero{--scrim-rgb:7,59,50;--motif-line-star:rgba(220,233,216,.10);--motif-line-cross:rgba(220,233,216,.07);
-    --motif-node:rgba(200,143,39,.10);background:var(--forest);border-bottom:none;}
-  .hero__grad{background:linear-gradient(160deg, var(--forest) 0%, var(--forest) 60%, #0a4a3f 100%);}
+  /* hero: brand blue, light copy, gold CTA */
+  .hero{--scrim-rgb:0,68,148;--motif-line-star:rgba(255,255,255,.10);--motif-line-cross:rgba(255,255,255,.07);
+    --motif-node:rgba(232,184,79,.10);background:var(--brand-blue);border-bottom:none;}
+  .hero__grad{background:linear-gradient(160deg, var(--brand-blue) 0%, var(--brand-blue) 60%, var(--navy-dark) 100%);}
   .hero h1{color:#fff;}
-  .hero p.lead{color:var(--sage);}
+  .hero p.lead{color:rgba(255,255,255,.82);}
   .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin:0;}
   @media (max-width:560px){ .hero-ctas .btn{width:100%;} }
 
-  /* footer: deepest green, gold accents */
-  footer{background:var(--forest-deep);}
+  /* footer: deep blue, gold accents */
+  footer{background:var(--navy-dark);}
   .newsletter h3{color:#fff;}
   .nl-form input{background:#fff;color:var(--ink);border-color:transparent;}
   .nl-form input::placeholder{color:var(--text-secondary);}
   .nl-form input:focus{background:#fff;border-color:var(--brand-gold);}
   .nl-form button{background:var(--brand-gold);color:var(--ink);}
-  .nl-form button:hover{background:#d99a2c;}
+  .nl-form button:hover{background:var(--gold-dark);}
   .nl-form button svg{stroke:var(--ink);}
-  .footer-divider{background:rgba(220,233,216,.18);}
-  .footer-links-bar{border-color:rgba(220,233,216,.2);}
-  .footer-links-bar{background:var(--forest);}
-  .flink{background:var(--forest);}
-  .flink:hover{background:#0b4a3f;}
-  .flink:not(:last-child)::after{background:rgba(220,233,216,.2);}
+  .footer-divider{background:rgba(255,255,255,.18);}
+  .footer-links-bar{border-color:rgba(255,255,255,.2);}
+  .footer-links-bar{background:var(--brand-blue);}
+  .flink{background:var(--brand-blue);}
+  .flink:hover{background:var(--navy-dark);}
+  .flink:not(:last-child)::after{background:rgba(255,255,255,.2);}
   .flink:first-child svg{stroke:var(--brand-gold);opacity:1;}
   .fcol ul a:hover{color:var(--brand-gold);}
   .fcol h4{color:#fff;}
@@ -879,7 +884,7 @@
   .nav:not(.scrolled) .primary-nav > a, .nav:not(.scrolled) .lang, .nav:not(.scrolled) .nav-toggle{color:#fff;}
   .nav:not(.scrolled) .primary-nav .menu:hover, .nav:not(.scrolled) .primary-nav .nav-item > a:hover{color:var(--brand-gold);}
   .nav:not(.scrolled) .btn--forest{background:#fff;color:var(--forest);}
-  .nav:not(.scrolled) .btn--forest:hover{background:var(--sage);}
+  .nav:not(.scrolled) .btn--forest:hover{background:var(--mist);}
 
   /* ---------- PREMIUM MICRO-INTERACTIONS ---------- */
   /* buttons: lift + light sweep */
@@ -889,7 +894,7 @@
   .btn:hover::after, .btn-primary:hover::after{left:130%;transition:left .8s var(--ease);}
   .btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px -12px rgba(5,42,37,.45);}
   .btn:active{transform:translateY(0);box-shadow:none;}
-  .btn--outline-light:hover{background:rgba(200,143,39,.1);}
+  .btn--outline-light:hover{background:rgba(232,184,79,.1);}
 
   /* header links: gold underline grows from the centre */
   .primary-nav > a, .primary-nav .menu{position:relative;}
@@ -912,7 +917,7 @@
   /* stat tiles: lift, icon pops, glow follows in from a corner */
   .stat-card{position:relative;overflow:hidden;isolation:isolate;transition:transform var(--dur-s) var(--ease), box-shadow var(--dur-s) var(--ease);}
   .stat-card::before{content:"";position:absolute;right:-30%;top:-40%;width:80%;height:80%;z-index:-1;pointer-events:none;border-radius:50%;
-    background:radial-gradient(circle,rgba(200,143,39,.28),rgba(200,143,39,0) 70%);opacity:0;transform:scale(.6);
+    background:radial-gradient(circle,rgba(232,184,79,.28),rgba(232,184,79,0) 70%);opacity:0;transform:scale(.6);
     transition:opacity .6s var(--ease), transform .6s var(--ease);}
   .stat-card:hover{transform:translateY(-6px);box-shadow:0 22px 36px -22px rgba(5,42,37,.55);}
   .stat-card:hover::before{opacity:1;transform:scale(1);}
@@ -949,7 +954,7 @@
   .socials a{transition:opacity var(--dur-s) var(--ease), transform .4s cubic-bezier(.22,1,.36,1);}
   .socials a:hover{transform:translateY(-4px) scale(1.15);}
   .fcol ul a{position:relative;}
-  .nl-form input:focus{box-shadow:0 0 0 4px rgba(200,143,39,.25);}
+  .nl-form input:focus{box-shadow:0 0 0 4px rgba(232,184,79,.25);}
   .store-row a, .fstores a{transition:transform var(--dur-s) var(--ease), filter var(--dur-s) var(--ease);}
   .store-row a:hover{transform:translateY(-3px);filter:drop-shadow(0 10px 14px rgba(0,0,0,.3));}
 
@@ -1219,7 +1224,7 @@
   /* "Your Finances" cards: white surface, hairline border, gentle lift on hover */
   .about-feature{background:#fff;border:1px solid var(--border-soft);border-radius:var(--radius-card);padding:28px;
     transition:transform .5s var(--ease), border-color .4s var(--ease), background-color .4s var(--ease);}
-  .about-feature:hover{transform:translateY(-4px);border-color:rgba(7,59,50,.35);}
+  .about-feature:hover{transform:translateY(-4px);border-color:rgba(0,144,54,.35);}
   .about-feature:hover .about-feature__icon{transform:scale(1.08);background:var(--forest-deep);color:#fff;}
   .about-feature__icon{transition:transform .5s var(--ease), background-color .4s var(--ease);}
   .about-feature:hover h3{transform:none;}
@@ -1244,8 +1249,8 @@
 
   /* MEGAMENU HOVER: very subtle — a faint tint and a colour shift, nothing moves */
   .megamenu-col-list a:hover, .megamenu-card:hover{transform:none!important;}
-  .megamenu-col-list a:hover{background:rgba(7,59,50,.035);color:var(--forest);}
-  .megamenu-card:hover{background:rgba(7,59,50,.035);border-color:transparent;box-shadow:none;}
+  .megamenu-col-list a:hover{background:rgba(0,144,54,.035);color:var(--forest);}
+  .megamenu-card:hover{background:rgba(0,144,54,.035);border-color:transparent;box-shadow:none;}
   .megamenu-card:hover .megamenu-card-icon{transform:none;background:var(--forest);}
   .megamenu-card:hover .megamenu-card-text strong{color:var(--forest);}
   .megamenu-col:hover .megamenu-col-head::after{width:0;}
@@ -1288,7 +1293,7 @@
   .nav-right .lang .chev{width:11px;height:11px;opacity:.55;}
 
   /* scrolled header: stronger glass + darker, heavier menu text so it stays legible over content */
-  :root{--nav-glass-bg:rgba(242,242,232,.92);}
+  :root{--nav-glass-bg:rgba(246,245,238,.92);}
   .nav.scrolled .primary-nav > a, .nav.scrolled .primary-nav .menu, .nav.scrolled .lang, .nav.scrolled .login-trigger{
     color:var(--ink);font-weight:600;}
   .nav.scrolled .primary-nav > a:hover, .nav.scrolled .primary-nav .menu:hover, .nav.scrolled .primary-nav .menu[aria-expanded="true"]{color:var(--forest);}
@@ -1553,15 +1558,15 @@
     <div class="about-features" data-reveal style="--reveal-delay:80ms;">
       <div class="about-feature">
         <span class="about-feature__icon"><i data-lucide="user" stroke-width="2"></i></span>
-        <h3>Personal Islamic Banking</h3>
-        <p>Al-Wadiah current accounts, Mudarabah savings, and Halal financing.</p>
-        <a class="read-more" href="#" aria-label="Read more about Personal Islamic Banking">Read more <i data-lucide="arrow-right"></i></a>
+        <h3>Personal Banking</h3>
+        <p>Current Qard ul Hasan accounts, Mudarabah savings, Mudarabah Fixed Deposit Account and Halal personal finance — designed around your everyday needs with full Shariah compliance.</p>
+        <a class="read-more" href="#" aria-label="Read more about Personal Banking">Read more <i data-lucide="arrow-right"></i></a>
       </div>
       <div class="about-feature">
         <span class="about-feature__icon"><i data-lucide="building-2" stroke-width="2"></i></span>
-        <h3>Islamic Corporate Banking</h3>
-        <p>Grow your business with Murabaha trade financing, and more.</p>
-        <a class="read-more" href="#" aria-label="Read more about Islamic Corporate Banking">Read more <i data-lucide="arrow-right"></i></a>
+        <h3>Corporate Banking</h3>
+        <p>Grow your business with Murabaha trade financing and Wakala investment structures — all 100% interest-free.</p>
+        <a class="read-more" href="#" aria-label="Read more about Corporate Banking">Read more <i data-lucide="arrow-right"></i></a>
       </div>
       <div class="about-feature">
         <span class="about-feature__icon"><i data-lucide="smartphone" stroke-width="2"></i></span>
@@ -1577,7 +1582,7 @@
   </div>
 
   <div class="about-img" data-reveal style="--reveal-delay:160ms;">
-    <video src="img/Banner1.mp4" poster="img/section-img_b1475276b6744ccd8c2530005870944b.avif" autoplay muted loop playsinline preload="metadata" aria-label="Ghazanfar Bank Islamic Banking branch"></video>
+    <img src="img/06_bamiyan_heritage_4k.jpg" alt="Ghazanfar Bank Islamic Banking branch">
   </div>
 </section>
 
@@ -1685,8 +1690,8 @@
         </div>
         <h3 class="qa-card__title">Western Union</h3>
         <div class="qa-card__divider"></div>
-        <p>Send and receive international money transfers through our Shariah-compliant partner network.</p>
-        <a class="qa-card__cta" href="#">Send Money <i data-lucide="arrow-right"></i></a>
+        <p>Ghazanfar Bank offers a wide range of financial services to medium and large sized public and private sector entities.</p>
+        <a class="qa-card__cta" href="#">Western Union <i data-lucide="arrow-right"></i></a>
       </div>
       <div class="qa-card">
         <div class="qa-card__top">
@@ -1695,8 +1700,8 @@
         </div>
         <h3 class="qa-card__title">Bank Guarantee</h3>
         <div class="qa-card__divider"></div>
-        <p>Secure trade and contract guarantees, structured to remain fully Shariah-compliant.</p>
-        <a class="qa-card__cta" href="#">Request a Guarantee <i data-lucide="arrow-right"></i></a>
+        <p>Ghazanfar Bank is offering types of Bank Guarantees to their Valued Customers</p>
+        <a class="qa-card__cta" href="#">Learn more <i data-lucide="arrow-right"></i></a>
       </div>
       <div class="qa-card">
         <div class="qa-card__top">
@@ -1705,8 +1710,8 @@
         </div>
         <h3 class="qa-card__title">ATM Debit Cards</h3>
         <div class="qa-card__divider"></div>
-        <p>Order or manage your Shariah-compliant ATM debit card in a few taps.</p>
-        <a class="qa-card__cta" href="#">Manage Cards <i data-lucide="arrow-right"></i></a>
+        <p>Find our nearest branch or ATM location with our easy-to-use.</p>
+        <a class="qa-card__cta" href="#">ATM Debit Cards <i data-lucide="arrow-right"></i></a>
       </div>
     </div>
   </div>
@@ -1729,7 +1734,7 @@
               <img src="img/Shariah-Compliant%20EMV%20Debit%20Cards.png" alt="" loading="lazy">
             </div>
             <div class="carousel-slide-body">
-              <span class="carousel-eyebrow">Shariah-Compliant Cards</span>
+              <span class="carousel-eyebrow">Shariah-Compliant Debit Cards</span>
               <h3>Global Access With Shariah-Compliant Master Debit Cards</h3>
               <p>Enjoy worldwide acceptance with our chip-enabled, Shariah-compliant master debit cards. Shop online, pay at merchants, and withdraw cash from ATMs across Afghanistan &amp; Overseas — with zero Riba and zero hidden fees.</p>
               <div class="check-list">
@@ -1748,15 +1753,15 @@
               <img src="img/Islamic%20Internet%20Banking.png" alt="" loading="lazy">
             </div>
             <div class="carousel-slide-body">
-              <span class="carousel-eyebrow">Islamic Internet Banking</span>
-              <h3>Bank Securely From Anywhere With Islamic Internet Banking</h3>
-              <p>Manage your accounts, transfer funds, and pay bills online — all fully Shariah-compliant, encrypted, and available 24/7 from any device.</p>
+              <span class="carousel-eyebrow">Internet Banking</span>
+              <h3>Secure Digital Banking At Your Fingertips</h3>
+              <p>Access your accounts 24/7 with our advanced internet banking platform. Manage transactions, pay bills, and monitor your finances from anywhere in the world.</p>
               <div class="check-list">
-                <div class="item"><span class="bullet"><i data-lucide="check" stroke-width="3"></i></span> Real-time balance &amp; transaction tracking</div>
-                <div class="item"><span class="bullet"><i data-lucide="check" stroke-width="3"></i></span> Free transfers between Ghazanfar Bank accounts</div>
-                <div class="item"><span class="bullet"><i data-lucide="check" stroke-width="3"></i></span> Bank-grade encryption &amp; two-factor authentication</div>
+                <div class="item"><span class="bullet"><i data-lucide="check" stroke-width="3"></i></span> Real-time account monitoring and alerts</div>
+                <div class="item"><span class="bullet"><i data-lucide="check" stroke-width="3"></i></span> Instant fund transfers and bill payments</div>
+                <div class="item"><span class="bullet"><i data-lucide="check" stroke-width="3"></i></span> Multi-layered security with 2FA protection</div>
               </div>
-              <a class="btn-primary" href="#">Log In to Internet Banking
+              <a class="btn-primary" href="#">Explore Internet Banking
                 <i data-lucide="arrow-right" width="15" height="15" stroke="#fff"></i>
               </a>
             </div>
@@ -1767,15 +1772,15 @@
               <img src="img/Safe%20Deposit%20Locker.png" alt="" loading="lazy">
             </div>
             <div class="carousel-slide-body">
-              <span class="carousel-eyebrow">Safe Deposit Lockers</span>
-              <h3>Keep Valuables Safe With Shariah-Compliant Deposit Lockers</h3>
-              <p>Store important documents, jewelry, and valuables in our secure, branch-based safe deposit lockers — available to all account holders on flexible, ethical terms.</p>
+              <span class="carousel-eyebrow">Safe Deposit Locker</span>
+              <h3>Maximum Security For Your Valuables</h3>
+              <p>Protect your important documents, jewelry, and valuables in our state-of-the-art safe deposit lockers with 24/7 surveillance and dual-key access system.</p>
               <div class="check-list">
-                <div class="item"><span class="bullet"><i data-lucide="check" stroke-width="3"></i></span> Dual-key access with 24/7 branch security</div>
-                <div class="item"><span class="bullet"><i data-lucide="check" stroke-width="3"></i></span> Multiple locker sizes to fit your needs</div>
-                <div class="item"><span class="bullet"><i data-lucide="check" stroke-width="3"></i></span> Transparent, Shariah-compliant rental terms</div>
+                <div class="item"><span class="bullet"><i data-lucide="check" stroke-width="3"></i></span> Climate-controlled secure vault facility</div>
+                <div class="item"><span class="bullet"><i data-lucide="check" stroke-width="3"></i></span> Tight security arrangements</div>
+                <div class="item"><span class="bullet"><i data-lucide="check" stroke-width="3"></i></span> Flexible locker sizes for all needs</div>
               </div>
-              <a class="btn-primary" href="#">Reserve a Locker
+              <a class="btn-primary" href="#">Explore Safe Deposit Locker
                 <i data-lucide="arrow-right" width="15" height="15" stroke="#fff"></i>
               </a>
             </div>
@@ -1868,7 +1873,7 @@
 <section class="app-promo">
   <div class="wrap app-promo-grid">
     <div class="app-promo-copy" data-reveal="left">
-      <span class="badge-pill">Islamic Mobile Banking App</span>
+      <span class="badge-pill">Mobile Banking App</span>
       <h2>Shariah Banking, Anytime, Anywhere</h2>
       <p>Experience secure and convenient banking at your fingertips. Manage your accounts, transfer funds, and access Shariah-compliant services anytime, anywhere.</p>
       <div class="store-row">
@@ -1935,15 +1940,17 @@
         <li><a href="#"><i data-lucide="chevron-right"></i> Privacy Policy</a></li>
         <li><a href="#"><i data-lucide="chevron-right"></i> Security Notice</a></li>
         <li><a href="#"><i data-lucide="chevron-right"></i> Terms &amp; Conditions</a></li>
-        <li><a href="#"><i data-lucide="chevron-right"></i> Download Forms</a></li>
+        <li><a href="#"><i data-lucide="chevron-right"></i> Accessibility Statement</a></li>
+        <li><a href="#"><i data-lucide="chevron-right"></i> DAB Licence Information</a></li>
+        <li><a href="#"><i data-lucide="chevron-right"></i> Legal Disclaimer</a></li>
       </ul>
     </div>
     <div class="fcol flast">
       <div class="socials">
-        <a href="#" aria-label="Ghazanfar Bank on Facebook"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.3-.02-3-1.8-3-1.8 0-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
-        <a href="#" aria-label="Ghazanfar Bank on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
-        <a href="#" aria-label="Ghazanfar Bank on X (formerly Twitter)"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M22 5.9c-.8.35-1.6.6-2.5.7.9-.55 1.6-1.4 1.9-2.4-.85.5-1.8.85-2.8 1.05A4 4 0 0 0 11.9 9c0 .35.03.5.1.85A11.4 11.4 0 0 1 3.4 4.8a4 4 0 0 0 1.24 5.35 4 4 0 0 1-1.8-.5c0 .05 0 .1 0 .15a4 4 0 0 0 3.2 3.9c-.5.15-1.1.2-1.7.1a4 4 0 0 0 3.7 2.75A8 8 0 0 1 2 18.6 11.4 11.4 0 0 0 8.2 20.4c7.5 0 11.6-6.3 11.6-11.7v-.55c.8-.55 1.5-1.3 2.2-2.25z"/></svg></a>
-        <a href="#" aria-label="Ghazanfar Bank on LinkedIn"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M13.5 21v-7h2.4l.4-2.8h-2.8V9.4c0-.8.2-1.4 1.4-1.4h1.5V5.5c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.8H8v2.8h2.2V21z"/></svg></a>
+        <a href="https://www.facebook.com/Ghazanfarbankofficial" target="_blank" rel="noopener" aria-label="Ghazanfar Bank on Facebook"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2 3.77-2 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.5c0-1.3-.02-3-1.8-3-1.8 0-2.1 1.4-2.1 2.9V21H9z"/></svg></a>
+        <a href="https://www.instagram.com/ghazanfarbank?stkn=cHRjYnR4emNucXR2" target="_blank" rel="noopener" aria-label="Ghazanfar Bank on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a href="https://www.youtube.com/@ghazanfarbankOfficial" target="_blank" rel="noopener" aria-label="Ghazanfar Bank on YouTube"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M21.6 7.2c-.25-1-1-1.75-2-2C17.9 4.75 12 4.75 12 4.75s-5.9 0-7.6.45c-1 .25-1.75 1-2 2C2 8.9 2 12 2 12s0 3.1.4 4.8c.25 1 1 1.75 2 2 1.7.45 7.6.45 7.6.45s5.9 0 7.6-.45c1-.25 1.75-1 2-2 .4-1.7.4-4.8.4-4.8s0-3.1-.4-4.8zM10 15.2V8.8L15.5 12 10 15.2z"/></svg></a>
+        <a href="https://www.linkedin.com/company/ghazanfarbank/" target="_blank" rel="noopener" aria-label="Ghazanfar Bank on LinkedIn"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M13.5 21v-7h2.4l.4-2.8h-2.8V9.4c0-.8.2-1.4 1.4-1.4h1.5V5.5c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.8H8v2.8h2.2V21z"/></svg></a>
       </div>
       <div class="fstores">
         <a href="#" aria-label="Get it on Google Play"><img class="store-badge" src="img/Group-4.svg" alt=""></a>
