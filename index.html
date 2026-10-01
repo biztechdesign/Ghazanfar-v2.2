@@ -480,7 +480,7 @@
     font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;
     padding:9px 20px;border-radius:999px;pointer-events:none;}
   .carousel-slide-body{position:absolute;left:0;bottom:0;z-index:2;width:100%;max-width:none;padding:40px;display:flex;flex-direction:column;gap:10px;}
-  .carousel-eyebrow{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--brand-gold);}
+  .carousel-eyebrow{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:#fff;}
   .carousel-slide-body h3{font-size:27px;font-weight:800;color:#fff;margin:0;line-height:1.25;}
   .carousel-slide-body > p{max-width:none;font-size:15px;color:var(--sage);line-height:1.55;margin:0;
     display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
@@ -712,6 +712,43 @@
     .plogo:hover img{transform:none;}
   }
 
+  /* ---------- MEDIA ---------- */
+  .media-section{padding-top:0;scroll-margin-top:var(--nav-h,132px);}
+  .media-grid{display:grid;grid-template-columns:65fr 35fr;gap:24px;margin-bottom:32px;}
+  .media-section .btn-primary{display:flex;width:fit-content;margin:0 auto;}
+  .media-card{position:relative;overflow:hidden;isolation:isolate;display:block;
+    border-radius:var(--radius-card);height:420px;background:var(--navy-dark);
+    box-shadow:var(--shadow-card);}
+  .media-card__media{position:absolute;inset:0;z-index:0;}
+  .media-card__media img{width:100%;height:100%;object-fit:cover;display:block;
+    transition:transform var(--dur-l) var(--ease);}
+  .media-card:hover .media-card__media img{transform:scale(1.04);}
+  .media-card::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(to top, rgba(0,34,74,.92) 0%, rgba(0,34,74,.55) 45%, rgba(0,34,74,.1) 75%, rgba(0,34,74,0) 100%);}
+  .media-card__play{position:absolute;top:50%;left:50%;z-index:2;width:64px;height:64px;
+    transform:translate(-50%,-50%);border-radius:50%;background:rgba(255,255,255,.18);
+    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border:1.5px solid rgba(255,255,255,.5);
+    display:flex;align-items:center;justify-content:center;color:#fff;
+    transition:transform var(--dur-s) var(--ease), background-color var(--dur-s) var(--ease);}
+  .media-card__play svg{width:24px;height:24px;margin-left:3px;}
+  .media-card:hover .media-card__play{transform:translate(-50%,-50%) scale(1.1);background:rgba(255,255,255,.28);}
+  .media-card__body{position:absolute;left:0;bottom:0;z-index:2;width:100%;padding:28px 32px;}
+  .media-card__eyebrow{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--brand-gold);}
+  .media-card__body h3{font-size:27px;font-weight:800;color:#fff;margin:8px 0 0;line-height:1.25;}
+  @media (max-width:900px){
+    .media-grid{grid-template-columns:1fr;}
+    .media-card, .media-card--sm{height:320px;}
+  }
+  @media (max-width:560px){
+    .media-card__body{padding:20px 22px;}
+    .media-card__body h3{font-size:21px;}
+    .media-card__play{width:52px;height:52px;}
+    .media-card__play svg{width:20px;height:20px;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .media-card__media img, .media-card__play{transition:none;}
+  }
+
   /* ---------- APP PROMO ---------- */
   /* Green-to-lime gradient band, phone mockup anchored to the section's
      bottom edge and pushed slightly past it so overflow:hidden crops its
@@ -857,22 +894,22 @@
   .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin:0;}
   @media (max-width:560px){ .hero-ctas .btn{width:100%;} }
 
-  /* footer: deep blue, gold accents */
+  /* footer: deep blue, green CTA accent */
   footer{background:var(--navy-dark);}
   .newsletter h3{color:#fff;}
   .nl-form input{background:#fff;color:var(--ink);border-color:transparent;}
   .nl-form input::placeholder{color:var(--text-secondary);}
-  .nl-form input:focus{background:#fff;border-color:var(--brand-gold);}
-  .nl-form button{background:var(--brand-gold);color:var(--ink);}
-  .nl-form button:hover{background:var(--gold-dark);}
-  .nl-form button svg{stroke:var(--ink);}
+  .nl-form input:focus{background:#fff;border-color:var(--brand-green);}
+  .nl-form button{background:var(--brand-green);color:#fff;}
+  .nl-form button:hover{background:var(--forest-deep);}
+  .nl-form button svg{stroke:#fff;}
   .footer-divider{background:rgba(255,255,255,.18);}
   .footer-links-bar{border-color:rgba(255,255,255,.2);}
   .footer-links-bar{background:var(--brand-blue);}
   .flink{background:var(--brand-blue);}
   .flink:hover{background:var(--navy-dark);}
   .flink:not(:last-child)::after{background:rgba(255,255,255,.2);}
-  .flink:first-child svg{stroke:var(--brand-gold);opacity:1;}
+  .flink:first-child svg{stroke:#fff;opacity:1;}
   .fcol ul a:hover{color:var(--brand-gold);}
   .fcol h4{color:#fff;}
 
@@ -954,7 +991,7 @@
   .socials a{transition:opacity var(--dur-s) var(--ease), transform .4s cubic-bezier(.22,1,.36,1);}
   .socials a:hover{transform:translateY(-4px) scale(1.15);}
   .fcol ul a{position:relative;}
-  .nl-form input:focus{box-shadow:0 0 0 4px rgba(232,184,79,.25);}
+  .nl-form input:focus{box-shadow:0 0 0 4px rgba(0,144,54,.25);}
   .store-row a, .fstores a{transition:transform var(--dur-s) var(--ease), filter var(--dur-s) var(--ease);}
   .store-row a:hover{transform:translateY(-3px);filter:drop-shadow(0 10px 14px rgba(0,0,0,.3));}
 
@@ -1403,6 +1440,10 @@
                 <span class="megamenu-card-icon"><i data-lucide="graduation-cap"></i></span>
                 <span class="megamenu-card-text"><strong>Careers</strong><small>Join our team</small></span>
               </a>
+              <a class="megamenu-card" href="#media">
+                <span class="megamenu-card-icon"><i data-lucide="video"></i></span>
+                <span class="megamenu-card-text"><strong>Media</strong><small>Documentaries &amp; videos</small></span>
+              </a>
             </div>
           </div>
         </div>
@@ -1454,7 +1495,7 @@
         <a href="#"><i data-lucide="log-in"></i> Credit &amp; Prepaid Card</a>
       </div>
     </div>
-    <a class="btn btn--gold nav-open-acct" href="#">Open Bank Account</a>
+    <a class="btn btn--forest nav-open-acct" href="#">Open Bank Account</a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">
       <i data-lucide="menu" class="icon-open"></i>
       <i data-lucide="x" class="icon-close"></i>
@@ -1477,6 +1518,7 @@
     <a href="#">Our Story</a>
     <a href="#">Leadership</a>
     <a href="#">Careers</a>
+    <a href="#media">Media</a>
   </div>
   <button class="m-menu-btn" type="button" aria-expanded="false">Resources &amp; Governance <i data-lucide="chevron-down" class="chev"></i></button>
   <div class="m-submenu" hidden>
@@ -1489,7 +1531,7 @@
   </div>
   <a href="#"><i data-lucide="log-in"></i> Login — Online Banking</a>
   <a href="#"><i data-lucide="log-in"></i> Login — Credit &amp; Prepaid Card</a>
-  <a class="btn btn--gold" style="margin-top:10px;" href="#">Open Bank Account</a>
+  <a class="btn btn--forest" style="margin-top:10px;" href="#">Open Bank Account</a>
 </div>
 
 <main id="main">
@@ -1504,8 +1546,8 @@
       <h1>Shariah-Compliant Digital Banking at Your Fingertips</h1>
       <p class="lead">Secure, transparent, and Shariah banking solutions — accessible from anywhere in Afghanistan.</p>
       <div class="store-row">
-        <a href="#" aria-label="Get it on Google Play"><img class="store-badge" src="img/Group-4.svg" alt=""></a>
-        <a href="#" aria-label="Download on the App Store"><img class="store-badge" src="img/Group-5.svg" alt=""></a>
+        <a href="https://play.google.com/store/apps/details?id=com.ofss.gfbank&hl=en" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img class="store-badge" src="img/Group-4.svg" alt=""></a>
+        <a href="https://apps.apple.com/us/app/gb-online/id1457065910" target="_blank" rel="noopener" aria-label="Download on the App Store"><img class="store-badge" src="img/Group-5.svg" alt=""></a>
       </div>
     </div>
     <div class="hero-card-visual" id="heroCards" aria-label="Ghazanfar Bank debit cards" role="img">
@@ -1869,6 +1911,41 @@
   </div>
 </section>
 
+<!-- MEDIA -->
+<section class="media-section" id="media">
+  <div class="wrap">
+    <div class="section-head" data-reveal>
+      <h2>Media &amp; Video Gallery</h2>
+      <p>All documentaries, promotional videos, and other video content related to our services can be easily accessed from here.</p>
+    </div>
+    <div class="media-grid" data-reveal style="--reveal-delay:80ms;">
+      <a class="media-card media-card--lg" href="#">
+        <div class="media-card__media">
+          <img src="img/section-img_b1475276b6744ccd8c2530005870944b.avif" alt="Ghazanfar Bank promotional video" loading="lazy">
+        </div>
+        <span class="media-card__play" aria-hidden="true"><i data-lucide="play"></i></span>
+        <div class="media-card__body">
+          <span class="media-card__eyebrow">Promotional Video</span>
+          <h3>Ghazanfar Bank — Banking Reimagined</h3>
+        </div>
+      </a>
+      <a class="media-card media-card--sm" href="#">
+        <div class="media-card__media">
+          <img src="img/06_bamiyan_heritage_4k.png" alt="Documentary on Afghanistan's heritage" loading="lazy">
+        </div>
+        <span class="media-card__play" aria-hidden="true"><i data-lucide="play"></i></span>
+        <div class="media-card__body">
+          <span class="media-card__eyebrow">Documentary</span>
+          <h3>Preserving Afghanistan's Heritage</h3>
+        </div>
+      </a>
+    </div>
+    <a class="btn-primary" href="#">View All
+      <i data-lucide="arrow-right" width="15" height="15" stroke="#fff"></i>
+    </a>
+  </div>
+</section>
+
 <!-- APP PROMO -->
 <section class="app-promo">
   <div class="wrap app-promo-grid">
@@ -1877,8 +1954,8 @@
       <h2>Shariah Banking, Anytime, Anywhere</h2>
       <p>Experience secure and convenient banking at your fingertips. Manage your accounts, transfer funds, and access Shariah-compliant services anytime, anywhere.</p>
       <div class="store-row">
-        <a href="#" aria-label="Get it on Google Play"><img class="store-badge" src="img/Group-4.svg" alt=""></a>
-        <a href="#" aria-label="Download on the App Store"><img class="store-badge" src="img/Group-5.svg" alt=""></a>
+        <a href="https://play.google.com/store/apps/details?id=com.ofss.gfbank&hl=en" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img class="store-badge" src="img/Group-4.svg" alt=""></a>
+        <a href="https://apps.apple.com/us/app/gb-online/id1457065910" target="_blank" rel="noopener" aria-label="Download on the App Store"><img class="store-badge" src="img/Group-5.svg" alt=""></a>
       </div>
     </div>
     <div class="app-promo-visual" id="appPromoVisual" data-reveal="right" style="--reveal-delay:120ms;">
@@ -1953,8 +2030,8 @@
         <a href="https://www.linkedin.com/company/ghazanfarbank/" target="_blank" rel="noopener" aria-label="Ghazanfar Bank on LinkedIn"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M13.5 21v-7h2.4l.4-2.8h-2.8V9.4c0-.8.2-1.4 1.4-1.4h1.5V5.5c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.8H8v2.8h2.2V21z"/></svg></a>
       </div>
       <div class="fstores">
-        <a href="#" aria-label="Get it on Google Play"><img class="store-badge" src="img/Group-4.svg" alt=""></a>
-        <a href="#" aria-label="Download on the App Store"><img class="store-badge" src="img/Group-5.svg" alt=""></a>
+        <a href="https://play.google.com/store/apps/details?id=com.ofss.gfbank&hl=en" target="_blank" rel="noopener" aria-label="Get it on Google Play"><img class="store-badge" src="img/Group-4.svg" alt=""></a>
+        <a href="https://apps.apple.com/us/app/gb-online/id1457065910" target="_blank" rel="noopener" aria-label="Download on the App Store"><img class="store-badge" src="img/Group-5.svg" alt=""></a>
       </div>
       <div class="copyright">© 2026 Ghazanfar Bank.</div>
     </div>
@@ -2084,6 +2161,34 @@
     init();
     window.addEventListener('load', init);
     window.addEventListener('resize', function(){ centerOn(all[nearest()], false); });
+
+    // Auto-scroll: advance one card at a time; pause on hover/focus/drag/hidden tab,
+    // and skip entirely for reduced-motion visitors.
+    if (!reduceMotion) {
+      var AUTOPLAY_MS = 5000;
+      var autoplayTimer = null;
+      function stopAutoplay(){ clearInterval(autoplayTimer); autoplayTimer = null; }
+      function startAutoplay(){
+        stopAutoplay();
+        autoplayTimer = setInterval(function(){
+          if (isDown || document.hidden) return;
+          centerOn(all[nearest() + 1], true);
+        }, AUTOPLAY_MS);
+      }
+      var carouselRoot = track.closest('.carousel') || track;
+      carouselRoot.addEventListener('mouseenter', stopAutoplay);
+      carouselRoot.addEventListener('mouseleave', startAutoplay);
+      carouselRoot.addEventListener('focusin', stopAutoplay);
+      carouselRoot.addEventListener('focusout', function(){
+        if (!carouselRoot.contains(document.activeElement)) startAutoplay();
+      });
+      prevBtn.addEventListener('click', startAutoplay);
+      nextBtn.addEventListener('click', startAutoplay);
+      document.addEventListener('visibilitychange', function(){
+        if (document.hidden) stopAutoplay(); else startAutoplay();
+      });
+      startAutoplay();
+    }
   })();
 
   /* Stats tiles: pathLength=1 lets the icon-draw animation use a simple 0->1 dash,
